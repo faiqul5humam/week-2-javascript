@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .hewan{
+            cursor: pointer;
+        }
+        .hewan:hover{
+            text-decoration: underline;
+            color: #6610f2;
+        }
+    </style>
+    <title>Control Flow JS</title>
+</head>
+<body>
+    <h1>Materi Control Flow JavaScript</h1>
+    <p>if else standar</p>
+    <script>
+        console.clear();
+        let nilai = 80;
+
+        if(nilai => 70){
+            console.log("Selamat Anda lulus!!!");
+        }else{
+            console.log("Mohon maaf, Anda belum berhasil");
+        }
+    </script>
+    <p>if else berkategori</p>
+    <script>
+        console.clear();
+        let tinggi = 169;
+
+        if(tinggi >= 180 ){
+            console.log("Kategori Tinggi");
+        }else if(tinggi < 150 ){
+            console.log("Kategori Rendah");
+        }else{
+            console.log("Kategori Sedang");
+        }
+    </script>
+    <p>if else berkategori dengan interval</p>
+    <script>
+        console.clear();
+        let denyut = 100;
+
+        if(denyut > 110 ){
+            console.log("Hipertensi");
+        }else if(denyut >= 90 && denyut <= 110){
+            console.log("normal");
+        }else{
+            console.log("Anemia");
+        }
+    </script>
+    <p>if else nested</p>
+    <script>
+        console.clear();
+        let iq = 110;
+        let krom = "xy";
+
+        if(iq > 109){
+            if(krom == "xy"){
+                console.log("Anda adalah seorang pria pintar")
+            }else{
+                console.log("Anda adalah seorang wanita pintar")
+            }
+        }
+    </script>
+    <p>prompt</p>
+    <script>
+        let mapel = prompt(`Silahkan pilih mapel:
+        1. Matematika
+        2. Fisika 
+        3. Biologi
+        `);
+        switch(mapel){
+            case "1":
+                alert("Anda memilih mtk");//alert juga memiliki fungsi yang sama dengan console.log, akan tetapi pada tampilan semacam caution terhadp pengguna
+                break;
+            case "2":
+                alert("Anda memilih fisika");
+                break;
+            case "3":
+                alert("Anda memilih biologi");
+                break;
+            default:
+                alert("Maaf mapel yang anda pilih, tidak ada");
+        }
+    </script>
+    <p>looping for</p>
+    <script>
+        let angka = 5;
+
+        for(let i = 0; i < angka; i++){
+            //fungsi for dibaca: untuk i (index) mulai dari 0, dimana setiap i kurang dari angka, maka akan ditampilkan dalam log, dan i akan selalu bertambah sampai kurang dari angka (i++)
+            console.log(i);
+        }
+        //script tersebut akan memunculkan urutan angka mulai dari 0 sampai 4
+    </script>    
+    <p>looping while</p>
+    <p>stop</p>
+    <script>
+        let stop = confirm("Apakah Anda ingin memunculkan alert?");
+
+        console.log(stop);
+    </script>
+    <p>while</p>
+    <script>
+        let cetak = true;
+
+        while(cetak){
+            //selama jawaban user pada cetak memilih true, maka akan menampilkan alert berikut:
+            alert("Hallo, selamat belajar!")
+            cetak = confirm("Apakah Anda ingin memunculkan alert?");
+        };
+    </script>
+    <p>for in object</p>
+    <script>
+        let sayur =["kobis", "wortel", "terong", "labu"];
+
+        for(let s in sayur){
+            console.log(sayur[s])
+        }
+    </script>
+    <script>
+        let orang = {
+            nama : "Humam",
+            umur : 21,
+            gender : "Laki -laki"
+        }
+        console.log(orang.nama);
+        console.log(orang['umur']);
+        for(let o in orang){
+            console.log(orang[o])
+        }
+    </script>
+    <p>variabel of iterrable</p>
+    <ul>
+        <li class="buah ">Mangga</li>
+        <li class="buah ">Jeruk</li>
+        <li class="buah ">Anggur</li>
+        <li class="buah ">Semangka</li>
+    </ul>
+    <script>
+        let buah = document.querySelectorAll('.buah');
+        console.log(buah)
+    </script>
+    <ul>
+        <li class="hewan">kambing</li>
+        <li class="hewan">domba</li>
+        <li class="hewan">sapi</li>
+        <li class="hewan">ayam</li>
+    </ul>
+        <script>
+            let hewan = document.querySelectorAll('.hewan');
+            for(let h of hewan){
+                h.addEventListener('click',function() {
+                    this.style.color = 'red';
+                })
+            }
+        </script>
+    <script>
+        let keluarga = [
+            {
+                nama: "Humam",
+                status: "bekerja",
+                pendapatan: 5000000
+            },
+            {
+                nama: "Ulfa",
+                status: "bekerja",
+                pendapatan: 4000000
+            },
+            {
+                nama: "Anisa",
+                status: "sekolah",
+                pendapatan: 200000
+            }
+        ];
+        keluarga.forEach(function(kk1){
+            console.log(kk1.nama)
+        })//forEach digunakan untuk menyebutkan 1 1 setiap data yang diinginkan
+        let kk2 = keluarga.map(function(kk2){
+            return {
+                nama: kk2.nama.toUpperCase(),
+                status: kk2.status,
+                pendapatan: kk2.pendapatan,
+            }
+        })//map berfungsi untuk memanipulasi data
+        console.log(kk2)
+        //hasilnya tag nama akan menjadi kapital semua
+        let kk3 = keluarga.filter(function(kk2){
+            if(kk2.pendapatan > 1000000){
+                return kk2
+            }
+        })//filter berfungsi untuk membuang data yang tidak diperlukan
+        console.log(kk3)
+        let kk4 = keluarga.reduce(function(prev, curr){
+            return prev + curr.pendapatan
+        },0)//reduce untuk menjumlahkan data
+        console.log(kk4)//maka hasilnya jumlah semua pendapatan keluarga
+        let kk5 = kk3.reduce(function(prev, curr){
+            return prev + curr.pendapatan
+        },0)
+        console.log(kk5)//hasilnya hanya pendapatan yang bekerja saja/dari kk3
+        //cara sekalian:
+        let kk6 = keluarga.map(kk1 => {
+            return{
+                nama: kk1.nama.toUpperCase(),
+                status: kk1.status,
+                pendapatan: kk1.pendapatan,
+            }
+        })
+        .filter(kk1 => kk1.status == "bekerja")
+        .reduce((prev, curr) => prev + curr.pendapatan,0)
+        console.log(kk6)
+    </script>
+</body>
+</html>
